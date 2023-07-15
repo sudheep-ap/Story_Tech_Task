@@ -190,10 +190,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                 break;
                               case AppStatus.success:
                                 Navigator.pop(context);
-
                                 showSnackBar(context, 'Registered Successfully',
                                     AppColors().kSnackBarSuccessColor);
-                                //Navigate to home screen
+                                //Navigate to login screen
                                 Navigator.pushNamed(context, '/loginPage');
 
                                 break;
@@ -212,7 +211,6 @@ class _SignUpPageState extends State<SignUpPage> {
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 if (selectedGenderNotifier.value.isNotEmpty) {
-                                  //
                                   context.read<RegistrationBloc>().add(
                                       OnRegistrationEvent(
                                           firstName: userFirstName.text,

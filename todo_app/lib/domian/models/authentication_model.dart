@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
+import 'package:todo_app/data/db/functions/db_functions.dart';
+
 Authentication userDataInstance = Authentication();
 
 class Authentication {
@@ -16,15 +18,17 @@ class Authentication {
 class User {
   //To save  data
   registerUser(String userFirstName, String userLastName, String userGender,
-      String userEmail, String userPassword) {
-    userDataInstance = Authentication(
-        firstName: userFirstName,
-        lastName: userLastName,
-        gender: userGender,
-        email: userEmail,
-        password: userPassword);
+      String userEmail, String userPassword) async {
+    await addUserDetails(
+        userFirstName, userLastName, userGender, userEmail, userPassword);
+    // userDataInstance = Authentication(
+    //     firstName: userFirstName,
+    //     lastName: userLastName,
+    //     gender: userGender,
+    //     email: userEmail,
+    //     password: userPassword);
 
-    return userDataInstance;
+    // return userDataInstance;
   }
 
 //To extract data

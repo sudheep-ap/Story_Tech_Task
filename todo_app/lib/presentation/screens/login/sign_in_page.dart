@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_app/main.dart';
 import 'package:todo_app/presentation/screens/login/bloc/login_bloc.dart';
 import '../../../data/core/app_status.dart';
 import '../../../data/core/common_functions.dart';
@@ -92,14 +93,14 @@ class _SignInPageState extends State<SignInPage> {
                                       'Logged In Successfully',
                                       AppColors().kSnackBarSuccessColor);
                                   //Navigate to home screen
-                                  Navigator.pushNamed(context, '/homePage');
+                                  Navigator.pushNamed(context, '/toDoHomePage');
 
                                   break;
                                 case AppStatus.failure:
                                   Navigator.pop(context);
                                   showSnackBar(
                                       context,
-                                      'Login Failed \n Please try again',
+                                      'Invalid email/password',
                                       AppColors().kSnackBarErrorColor);
 
                                   break;
@@ -109,7 +110,6 @@ class _SignInPageState extends State<SignInPage> {
                             child: ElevatedButton(
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
-                                  //
                                   context.read<LogInBloc>().add(OnLogInEvent(
                                       userEmail.text, userPassword.text));
                                 }

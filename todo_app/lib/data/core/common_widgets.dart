@@ -8,6 +8,8 @@ Widget kLinearLoadingIndicator = LinearProgressIndicator(
     color: Colors.green, backgroundColor: AppColors().kMainBlackColor);
 
 Widget kSizedBox20 = const SizedBox(height: 20);
+Widget kSizedBox30 = const SizedBox(height: 30);
+Widget kSizedBox40 = const SizedBox(height: 40);
 
 //To show linear lodaing in bottom sheet
 
