@@ -21,5 +21,10 @@ class ToDoBloc extends Bloc<ToDoEvent, ToDoState> {
       ToDoMethods().addOrEditDoOperation(custTodoList);
       emit(ToDoState(toDoList: custTodoList));
     });
+    on<ClearAllListEvent>((event, emit) {
+      custTodoList.clear();
+      ToDoMethods().addOrEditDoOperation(custTodoList);
+      emit(ToDoState(toDoList: custTodoList));
+    });
   }
 }

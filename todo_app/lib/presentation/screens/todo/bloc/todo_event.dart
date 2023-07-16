@@ -24,3 +24,5 @@ class EditListEvent extends ToDoEvent {
     required this.time,
   });
 }
+
+class ClearAllListEvent extends ToDoEvent {}

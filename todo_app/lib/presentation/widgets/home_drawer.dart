@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/presentation/screens/registration/sign_up_page.dart';
+import 'package:todo_app/presentation/screens/todo/bloc/todo_bloc.dart';
 import '../../data/core/constants.dart';
 import '../../domian/user.dart';
 import '../../main.dart';
@@ -49,6 +51,20 @@ class HomePageDrawer extends StatelessWidget {
                       color: AppColors().kTextBlackColor,
                       fontSize: 16,
                       fontWeight: FontWeight.bold)),
+            ),
+            ListTile(
+              leading: const Icon(Icons.delete_outline_rounded),
+              title: Text(
+                'clear all data',
+                style: TextStyle(
+                    color: AppColors().kTextBlackColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+              ),
+              onTap: () {
+                context.read<ToDoBloc>().add(ClearAllListEvent());
+                Navigator.pop(context);
+              },
             ),
             ListTile(
               leading: const Icon(Icons.exit_to_app_outlined),
