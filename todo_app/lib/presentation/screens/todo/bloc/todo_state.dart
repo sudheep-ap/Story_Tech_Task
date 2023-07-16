@@ -1,7 +1,7 @@
 part of 'todo_bloc.dart';
 
 class ToDoState {
-  final List<Map> toDoList;
+  final List toDoList;
   ToDoState({required this.toDoList});
 }
 

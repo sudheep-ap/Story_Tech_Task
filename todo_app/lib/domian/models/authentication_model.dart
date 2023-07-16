@@ -2,7 +2,7 @@
 
 import 'package:todo_app/data/db/functions/db_functions.dart';
 
-Authentication userDataInstance = Authentication();
+// Authentication userDataInstance = Authentication();
 
 class Authentication {
   final firstName;
@@ -16,30 +16,14 @@ class Authentication {
 }
 
 class User {
-  //To save  data
+  //To save registered data
   registerUser(String userFirstName, String userLastName, String userGender,
       String userEmail, String userPassword) async {
     await addUserDetails(
         userFirstName, userLastName, userGender, userEmail, userPassword);
-    // userDataInstance = Authentication(
-    //     firstName: userFirstName,
-    //     lastName: userLastName,
-    //     gender: userGender,
-    //     email: userEmail,
-    //     password: userPassword);
-
-    // return userDataInstance;
   }
 
-//To extract data
-  Map getUserData(Authentication data) {
-    Map userData = {
-      'firstName': data.firstName,
-      'lastName': data.lastName,
-      'gender': data.gender,
-      'email': data.email,
-      'password': data.password
-    };
-    return userData;
+  logOutUser() async {
+    await clearUserDetails();
   }
 }

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:todo_app/presentation/screens/home/home_page.dart';
 import 'package:todo_app/presentation/screens/login/bloc/login_bloc.dart';
 import 'package:todo_app/presentation/screens/login/sign_in_page.dart';
 import 'package:todo_app/presentation/screens/registration/bloc/registration_bloc.dart';
 import 'package:todo_app/presentation/screens/registration/sign_up_page.dart';
 import 'package:todo_app/presentation/screens/todo/bloc/todo_bloc.dart';
 import 'package:todo_app/presentation/screens/todo/todo_home.dart';
+import 'data/core/constants.dart';
 import 'data/core/router.dart';
 import 'data/db/functions/db_functions.dart';
 
@@ -17,7 +17,7 @@ String custGender = '';
 String custEmail = '';
 String custPassword = '';
 bool isCustLogin = false;
-List<Map> custTodoList = [];
+List custTodoList = [];
 
 void main() async {
   await Hive.initFlutter();
@@ -26,6 +26,7 @@ void main() async {
   await Hive.openBox('todoDb');
   await checkLogin();
   await getUserDetails();
+  // clearTodoList();
   await getTodoList();
 
   runApp(MaterialApp(
@@ -40,7 +41,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // clearUserDetails();
     return MultiBlocProvider(
       providers: [
         BlocProvider<LogInBloc>(create: (context) => LogInBloc()),
@@ -49,6 +49,12 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+              primary: AppColors().kBgTealColor,
+              secondary: AppColors().kMainBlackColor,
+              onPrimary: AppColors().kMainBlackColor),
+        ),
         home: !isCustLogin
             ? custEmail.isEmpty
                 ? const SignUpPage()

@@ -111,12 +111,12 @@ class _SignInPageState extends State<SignInPage> {
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
                                   context.read<LogInBloc>().add(OnLogInEvent(
-                                      userEmail.text, userPassword.text));
+                                      userEmail.text.trim(),
+                                      userPassword.text.trim()));
                                 }
                               },
                               style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      AppColors().kButtonYellowColor,
+                                  backgroundColor: AppColors().kButtonTealColor,
                                   elevation: 0,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(18),

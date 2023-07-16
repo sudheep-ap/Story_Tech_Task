@@ -213,11 +213,11 @@ class _SignUpPageState extends State<SignUpPage> {
                                 if (selectedGenderNotifier.value.isNotEmpty) {
                                   context.read<RegistrationBloc>().add(
                                       OnRegistrationEvent(
-                                          firstName: userFirstName.text,
-                                          lastName: userLastName.text,
+                                          firstName: userFirstName.text.trim(),
+                                          lastName: userLastName.text.trim(),
                                           gender: selectedGenderNotifier.value,
-                                          email: userEmail.text,
-                                          password: userPassword.text));
+                                          email: userEmail.text.trim(),
+                                          password: userPassword.text.trim()));
                                 } else {
                                   showSnackBar(
                                       context,
@@ -239,7 +239,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               ],
                             ),
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors().kButtonYellowColor,
+                                backgroundColor: AppColors().kButtonTealColor,
                                 // elevation: 0,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18),

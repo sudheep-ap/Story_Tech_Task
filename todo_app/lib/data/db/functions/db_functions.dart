@@ -31,13 +31,6 @@ Future<void> getUserDetails() async {
   final userGender = loginDb.get('userGenderKey');
   final userEmail = loginDb.get('userEmailKey');
   final userPassword = loginDb.get('userPasswordKey');
-  // if (userFirstName == null) {
-  //   custFirstName = '';
-  //   custLastName = '';
-  //   custGender = '';
-  //   custEmail = '';
-  //   custPassword = '';
-  // } else {
   custFirstName = userFirstName ?? '';
   custLastName = userLastName ?? '';
   custGender = userGender ?? '';
@@ -71,7 +64,7 @@ Future<void> checkLogin() async {
 }
 
 //  Add Todo list
-Future<void> addToList(List<Map> todoList) async {
+Future<void> addToList(List todoList) async {
   final todoDb = Hive.box('todoDb');
   todoDb.put('userTodoListKey', todoList);
 
@@ -84,15 +77,18 @@ Future<void> addToList(List<Map> todoList) async {
 Future<void> getTodoList() async {
   final todoDb = Hive.box('todoDb');
 
-  final userTodoList = todoDb.get('userTodoListKey');
+  final userTodoList = todoDb.get('userTodoListKey') ?? [];
+  print(userTodoList);
+  custTodoList = userTodoList;
+  print('custTodoList : $custTodoList');
+}
 
-  if (userTodoList == null) {
-    custTodoList = [];
-    print('custTodoList : $custTodoList');
-  } else {
-    custTodoList = userTodoList;
-    print('custTodoList : $custTodoList');
-  }
+//Clear todo list
+
+Future<void> clearTodoList() async {
+  final todoDb = Hive.box('todoDb');
+  await todoDb.delete('userTodoListKey');
+  print('custTodoList : $custTodoList');
 }
 
 // To clear local db when user logs out
