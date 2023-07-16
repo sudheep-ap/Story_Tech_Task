@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../data/core/constants.dart';
-import '../../data/db/functions/db_functions.dart';
-import '../../presentation/widgets/add_or_edit_todo.dart';
+import '../data/core/constants.dart';
+import '../data/db/functions/db_functions.dart';
+import '../presentation/widgets/add_or_edit_todo.dart';
 
 abstract class ToDo {
   showAddTodoSheet(context) {}
@@ -19,8 +19,7 @@ class ToDoMethods implements ToDo {
         context: context,
         builder: (ctx) => Container(
               decoration: BoxDecoration(
-                  color: AppColors()
-                      .klightGreyColor, //AppColors().kButtonYellowColor,
+                  color: AppColors().kBgTealColor,
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),

@@ -78,7 +78,6 @@ Future<void> getTodoList() async {
   final todoDb = Hive.box('todoDb');
 
   final userTodoList = todoDb.get('userTodoListKey') ?? [];
-  print(userTodoList);
   custTodoList = userTodoList;
   print('custTodoList : $custTodoList');
 }

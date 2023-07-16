@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/data/db/functions/db_functions.dart';
-import 'package:todo_app/domian/models/todo_model.dart';
 import 'package:todo_app/presentation/screens/registration/sign_up_page.dart';
-
 import '../../data/core/constants.dart';
+import '../../domian/user.dart';
 import '../../main.dart';
 
 class HomePageDrawer extends StatelessWidget {
@@ -62,7 +60,7 @@ class HomePageDrawer extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               onTap: () {
-                clearUserDetails();
+                User().logOutUser();
                 Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (context) => const SignUpPage()),

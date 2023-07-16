@@ -10,7 +10,7 @@ import 'package:todo_app/presentation/widgets/textFiled_widget.dart';
 
 class AddOrEditTaskWidget extends StatefulWidget {
   final isEdit;
-  final toDodata; //map
+  final toDodata;
   final itemIndex;
   const AddOrEditTaskWidget(
       {super.key, required this.isEdit, this.toDodata, this.itemIndex});

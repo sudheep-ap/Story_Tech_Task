@@ -4,7 +4,7 @@ import 'package:todo_app/data/core/common_widgets.dart';
 import 'package:todo_app/data/core/constants.dart';
 import 'package:todo_app/presentation/screens/todo/bloc/todo_bloc.dart';
 import 'package:todo_app/presentation/widgets/todo_tile.dart';
-import '../../../domian/models/todo_model.dart';
+import '../../../domian/todo.dart';
 import '../../widgets/home_drawer.dart';
 
 class ToDoHome extends StatefulWidget {

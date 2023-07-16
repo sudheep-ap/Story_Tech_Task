@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:todo_app/data/core/constants.dart';
-import 'package:todo_app/domian/models/todo_model.dart';
+import 'package:todo_app/domian/todo.dart';
 
 class ToDoTile extends StatelessWidget {
   final toDoItemIndex;
